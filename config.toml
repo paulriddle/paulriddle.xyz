@@ -1,0 +1,11 @@
+base_url = "https://paulriddle.xyz"
+title = "Paul Riddle"
+description = "Binary exploitation and reverse engineering"
+default_language = "en"
+generate_feed = false
+compile_sass = true
+highlight_code = true
+highlight_theme = "visual-studio-dark"
+build_search_index = false
+
+[extra]

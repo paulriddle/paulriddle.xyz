@@ -1,0 +1,36 @@
+h1, h1 a {
+  color: #e2ba22;
+  text-decoration: none;
+}
+
+body {
+  background-color: rgb(25, 27, 28);
+}
+
+li a {
+  font-size: 12.0pt;
+  text-decoration: none;
+  color: #3a8bdf;
+}
+
+li a:visited {
+  color: #4a42c5;
+}
+
+li a:hover {
+  color: #e2ba22;
+}
+
+.posts, .header-links {
+  list-style-type: none;
+}
+
+.header-links {
+  a:visited {
+    color: #3a8bdf;
+  }
+}
+
+p {
+  color: #e8e6e3;
+}
