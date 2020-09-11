@@ -1,5 +1,5 @@
 +++
 sort_by = "none"
-template = "blog.html"
-page_template = "blog-page.html"
+template = "w.html"
+page_template = "post.html"
 +++
