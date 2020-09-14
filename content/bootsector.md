@@ -2,6 +2,8 @@
 title = "Writing a game in boot sector"
 +++
 
+# Writing a game in boot sector
+
 Not for any practical reason really. It's just that I've seen a few people do
 it, one of them gave a couple of talks about it, another wrote two books on the
 topic and I decided to try writing my own. At this point I don't have any
@@ -55,10 +57,10 @@ times 510 - ($-$$) db 0
 dw 0xaa55
 ```
 
-First of all BIOS programming is done in 16-bit real mode, meanining that
+All BIOS programming is done in 16-bit real mode, meanining that
 maximum address I can reference is `0xffff` and instead of working with
 registers called `rax`, `rbx`, `rdx`, and so on, I have to work with `ax`, `bx`,
-and `dx`, respectively
+and `dx`, respectively.
 
 The boot sector starts at `0x7c00`. Nobody but old people care why. `[org
 0x7c00]` seems to be NASM specific assembly directive, I don't know how to do
@@ -172,6 +174,8 @@ To be continued.
     * [Mode 13h](https://en.wikipedia.org/wiki/Mode_13h)
     * [Code page 437](https://en.wikipedia.org/wiki/Code_page_437)
     * [BIOS - osdev](https://wiki.osdev.org/BIOS)
+    * [Real mode - osdev](https://wiki.osdev.org/Real_Mode)
 3. Master Boot Record, a musician: [masterbootrecord.bandcamp.com](https://masterbootrecord.bandcamp.com/)
 4. Writing an OS in Rust: [os.phil-opp.com](https://os.phil-opp.com/)
 5. [Boot_Sector_Graphical_Programming_-_Tutorial - XlogicX](https://xlogicx.net/Boot_Sector_Graphical_Programming_-_Tutorial.html)
+---
