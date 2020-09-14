@@ -5,7 +5,7 @@ default_language = "en"
 generate_feed = false
 compile_sass = true
 highlight_code = true
-highlight_theme = "visual-studio-dark"
+highlight_theme = "1337"
 build_search_index = false
 
 [extra]

@@ -4,21 +4,26 @@ h1, h1 a {
 }
 
 body {
-  background-color: rgb(25, 27, 28);
+  background-color: #191919;
+  color: #e8e6e3;
 }
 
-li a {
+a {
   font-size: 12.0pt;
   text-decoration: none;
   color: #3a8bdf;
 }
 
 li a:visited {
-  color: #4a42c5;
+  color: #347dc8;
 }
 
 li a:hover {
   color: #e2ba22;
+}
+
+img {
+  padding: 0.7em;
 }
 
 .posts, .header-links {
@@ -31,6 +36,11 @@ li a:hover {
   }
 }
 
-p {
-  color: #e8e6e3;
+.container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 5%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }

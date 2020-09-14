@@ -1,8 +1,54 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>
-  {{ page.title }}
-</h1>
-{{ page.content | safe }}
+<article>{{ page.content | safe }}</article>
+<aside>
+  <pre>
+         +------------------------------------+
+         |                                    |
+         |                Free                |
+         |                                    |
+         |                                    |
+         |                                    |
+0x100000 +------------------------------------+
+         |                                    |
+         |                                    |
+         |          BIOS (256 KiB)            |
+         |                                    |
+ 0xc0000 +------------------------------------+
+         |                                    |
+         |       Video Memory (128 KiB)       |
+ 0xa0000 +------------------------------------+
+         |                                    |
+         |                                    |
+         |                                    |
+         |  Extended BIOS Data Area (639 KiB) |
+         |                                    |
+         |                                    |
+         |                                    |
+ 0x9fc00 +------------------------------------+
+         |                                    |
+         |               Free                 |
+         |                                    |
+  0x7e00 +------------------------------------+
+         |       Boot Sector (512 bytes)      | <---+ game goes here
+  0x7c00 +------------------------------------+
+         |               Free                 |
+         |                                    |
+   0x500 +------------------------------------+
+         |    BIOS Data Area (256 bytes)      |
+   0x400 +------------------------------------+
+         |   Interrupt Vector Table (1 KiB)   |
+         |                                    |
+     0x0 +------------------------------------+
+  </pre>
+  <p>
+    QEMU uses <a href="https://coreboot.org/">SeaBIOS</a> which is
+    part of the coreboot project. On Sway, a Wayland Window Manager, running
+    qemu does not refresh the screen until you switch from the qemu window
+    somewhere else, and then back.
+  </p>
+  <img src="/unini.png">
+  <img src="/ini.png">
+</aside>
 {% endblock content %}
