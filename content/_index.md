@@ -1,5 +1,5 @@
 +++
-sort_by = "none"
+sort_by = "date"
 template = "w.html"
-page_template = "post.html"
+page_template = "bootsector.html"
 +++

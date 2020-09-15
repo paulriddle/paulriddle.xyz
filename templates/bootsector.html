@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<article>{{ page.content | safe }}</article>
+<article>
+  <h2 class="updated">Updated: {{ page.updated }}</h2>
+  {{ page.content | safe }}
+</article>
 <aside>
   <h1>Additional stuff</h1>
   <pre>

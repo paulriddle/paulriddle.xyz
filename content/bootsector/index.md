@@ -1,5 +1,8 @@
 +++
 title = "Writing a game in Boot Sector"
+template = "bootsector.html"
+date = 2020-09-14
+updated = 2020-09-14
 +++
 
 # Writing a Game in Boot Sector
