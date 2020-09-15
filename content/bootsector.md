@@ -1,8 +1,8 @@
 +++
-title = "Writing a game in boot sector"
+title = "Writing a game in Boot Sector"
 +++
 
-# Writing a game in boot sector
+# Writing a Game in Boot Sector
 
 Not for any practical reason really. It's just that I've seen a few people do
 it, one of them gave a couple of talks about it, another wrote two books on the
