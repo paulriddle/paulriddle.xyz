@@ -5,6 +5,47 @@
   {{ page.content | safe }}
 </article>
 <aside>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+        integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+        crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+          integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+          crossorigin="anonymous">
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+          integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+          crossorigin="anonymous"
+          onload="renderMathInElement(document.body);">
+  </script>
   <h1>Additional stuff</h1>
+  <p>Enable javascript.</p>
+  <p>
+    Why? Why use IEEE instead of simply using binary fractions:
+    \[
+        b_{m}b_{m-1} \cdots b_{1}b_{0} \centerdot b_{-1}b_{-2} \cdots b_{-n+1}b_{-n}
+    \]
+    \[
+        b = \sum_{i=-m}^{m}2^i \times b_i
+    \]
+    Because to represent a big number like <code>DBL_MAX = 1.7976931348623157E+308</code>
+    would take a fuckload of digits. I don't know know how many digits that is. But with
+    IEEE it's just 64 digits. I'm sure there are other reasons but I don't care about them
+    and this one does not impress me either. Basically you have smaller range of
+    representable values if you use the simple method of binary fractions. And as such it
+    is unsuitable.
+  </p>
+  <p>
+    Numbers of the binary form <code>0.1111...111</code> are just below zero.
+    Example (6 digits):
+    \[
+      \begin{aligned}
+        0.111111 &= 2^{-1} + 2^{-2} + 2^{-3} + 2^{-3} + 2^{-4} + 2^{-5} + 2^{-6} \\
+                 &= {1 \over 2^1} + {1 \over 2^2} + {1 \over 2^3} + {1 \over 2^4} + {1 \over 2^5} + {1 \over 2^6} \\
+                 &= \tfrac{32}{64} + \tfrac{16}{64} + \tfrac{8}{64} + \tfrac{4}{64} + \tfrac{2}{64} + \tfrac{1}{64} \\
+                 &= \tfrac{63}{64}
+      \end{aligned}
+    \]
+  </p>
 </aside>
 {% endblock content %}
