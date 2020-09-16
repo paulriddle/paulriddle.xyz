@@ -3,6 +3,8 @@ title = "Writing a game in Boot Sector"
 template = "bootsector.html"
 date = 2020-09-14
 updated = 2020-09-14
+[extra]
+tags = ["x86"]
 +++
 
 # Writing a Game in Boot Sector

@@ -4,7 +4,10 @@
 <ul class="posts">
   {% for page in section.pages %}
   <li>
+    {{ page.date }}:
     <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    <span class="tags">{{ page.extra.tags }}</span>
+    <span class="updated">(updated: {{ page.updated }})</span>
   </li>
   {% endfor %}
 </ul>

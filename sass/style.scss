@@ -42,6 +42,15 @@ img {
   font-size: 9pt;
 }
 
+.tags {
+  background-color: #e2ba22;
+  color: black;
+  border-radius: 5px;
+  font-size: 8pt;
+  margin-left: 0.25em;
+  padding: 0px 0.4em 1px 0.4em;
+}
+
 .container {
   display: grid;
   grid-template-columns: 50% 50%;

@@ -3,6 +3,8 @@ title = "IEEE Floating-Point Representation"
 template = "ieee.html"
 date = 2020-09-15
 updated = 2020-09-15
+[extra]
+tags = []
 +++
 
 # IEEE Floating-Point Representation
