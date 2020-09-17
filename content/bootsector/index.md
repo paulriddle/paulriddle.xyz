@@ -135,7 +135,7 @@ mov BYTE [es:bx], 0x5 ; set to pink
 ```
 Running it:
 
-![Pink background hello world](/pink.png)
+![Pink background hello world](pink.png)
 
 Now draw a line somewhere in the middle:
 
@@ -164,7 +164,7 @@ Now draw a line somewhere in the middle:
 
 Result:
 
-![White line somewhere in the middle](/line.png)
+![White line somewhere in the middle](line.png)
 
 To be continued.
 
