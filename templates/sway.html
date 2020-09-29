@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<article>
+  <h2 class="updated">Updated: {{ page.updated }}</h2>
+  {{ page.content | safe }}
+</article>
+<aside>
+  <h1>Additional stuff</h1>
+  <p>
+    I remind you to define a shell alias for editing your Sway config. For example I have
+    <pre>
+      visway  -> vi ~/.config/sway/config
+      viflash -> vi ~/.config/flashfocus/flashfocus.yml
+    </pre>
+
+    Using fish? Define abbreviations instead of aliases for this kind of stuff:
+    <pre>
+      abbr --add viflash 'vi ~/.config/flashfocus/flashfocus.yml'
+    </pre>
+    View all your defined abbreviations with <code>abbr -s</code> or in
+    <pre>
+      ~/.config/fish/fish_variables
+    </pre>
+  </p>
+  <video loop="true" preload autoplay>
+    <source src="smallflash.mp4" type="video/mp4" />
+  </video>
+</aside>
+{% endblock content %}
