@@ -20,4 +20,9 @@ bat mirrorlist
 diff old_mirrorlist mirrorlist
 sudo rm old_mirrorlist # if the new one looks legit
 ```
+Clean yay cache:
+```
+yay -Sc
+```
+
 ---
