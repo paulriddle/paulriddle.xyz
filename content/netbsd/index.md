@@ -4,7 +4,7 @@ template = "netbsd.html"
 date = 2020-09-30
 updated = 2020-09-30
 [extra]
-tags = []
+tags = ["alacritty"]
 +++
 
 # NetBSD development box with QEMU
@@ -111,15 +111,7 @@ Is the info correct and do you want it installed in /etc?
 a: Yes
 ```
 
-## pkgin
-
-```
-e: Enable installation of binary packages
-x: Install pkgin and update package summary
-I have some issues here.
-```
-
-## Other stuff
+## Almost there
 
 ```
 g: Enable sshd
@@ -185,5 +177,68 @@ tic -x alacritty
 mv alacritty.cdb ~/.terminfo.cdb
 rm alacritty
 ```
+Now I suggest powering off the machine. You'll have to be root for that. There
+is no sudo. Use `su` and type `poweroff`. Then create startup script:
+```fish
+qemu-system-x86_64 \
+  -m 1024 \
+  -monitor stdio \
+  -enable-kvm \
+  -smp 2 \
+  -nic user,hostfwd=tcp:127.0.0.1:2222-:22 \
+  -hda netbsd.qcow2
+```
+Notice there is no `cdrom` option here. No longer necessary. On the host machine
+generate ssh key if you don't have one. `ssh-keygen -b 4096`. Then copy it:
+```
+ssh-copy-id -i .ssh/id_rsa.pub -p 2222 paulriddle@localhost
+```
+Add this to `~/.ssh/config`:
+```sshconfig
+Host sphere
+  HostName 127.0.0.1
+  IdentityFile ~/.ssh/id_rsa
+  Port 2222
+  User paulriddle
+```
+
+## pkgin
+
+Is a package manager.
+```
+su
+export PKG_PATH="http://ftp.netbsd.org/pub/pkgsrc/packages/NetBSD/amd64/9.0_current/All/"
+pkg_add -v pkgin
+```
+It took a really long time for `pkg_add` to complete. Unbecome root. Add this to
+`~/.shrc`:
+```
+alias poff='su root -c "/sbin/shutdown -p now"'
+```
+Then `. ~/.shrc` and `poff`. Since the primary way of interaction with NetBSD
+will be via ssh, disable the QEMU window with `-display none`. This is the final
+command to launch the machine:
+```fish
+qemu-system-x86_64 \
+  -m 1024 \
+  -display none \
+  -monitor stdio \
+  -enable-kvm \
+  -smp 2 \
+  -nic user,hostfwd=tcp:127.0.0.1:2222-:22 \
+  -hda netbsd.qcow2
+```
+Keep in mind that if your laptop looses power while virtual machine is running
+it *will* fuck up the file system. Back up the image with:
+```
+cp netbsd.qcow2 bak_netbsd.qcow2
+```
+or something more intelligent. There are a couple issues left, for example when
+shutting down I see a warning:
+```
+swapctl: /dev/wd0b: Device not configured
+swapctl: failed to remove /dev/wd0b as swap device
+```
+Probably not a big deal.
 
 ---
