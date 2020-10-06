@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+  <h2 class="updated">Updated: {{ page.updated }}</h2>
+  {{ page.content | safe }}
+</article>
+<aside>
+  <h1>Notes</h1>
+  <p>
+    Even though it is called Win32 the layer will be written with 64-bit architecture in mind.
+    Win32 is just the name the API arrived at historically. Microsoft decided that renaming
+    Win32 to Win64 doesn't make much sense because Win32 can be easily compiled for both
+    32-bit and 64-bit. But compiling Win64 in 32-bit mode might be confusing.
+  </p>
+  <p>
+    Win32 is not deprecated. For Microsoft, deprecation of an API is more of a marketing
+    statement rather than commitment to removing the API in the future.
+  </p>
+  <h2>Hungarian notation</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Abbreviation</th>
+        <th>Meaning</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>WINAPI or __stdcall</td>
+        <td>Calling convention</td>
+      </tr>
+      <tr>
+        <td>iVal</td>
+        <td>i means index</td>
+      </tr>
+      <tr>
+        <td>cbSize</td>
+        <td>cb means count of bytes</td>
+      </tr>
+      <tr>
+        <td>hInstance</td>
+        <td>h is a handle</td>
+      </tr>
+      <tr>
+        <td>rwPosition</td>
+        <td>rw is a row</td>
+      </tr>
+      <tr>
+        <td>lpCmdLine or pCmdLine</td>
+        <td>lp is a long pointer, same as a regular pointer</td>
+      </tr>
+      <tr>
+        <td>LPSTR</td>
+        <td>char *</td>
+      </tr>
+      <tr>
+        <td>LPCSTR</td>
+        <td>const char *</td>
+      </tr>
+      <tr>
+        <td>g_szClassName[]</td>
+        <td>g - global, sz - zero-terminated string</td>
+      </tr>
+      <tr>
+        <td>PWSTR</td>
+        <td>wchar *</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>WinMain vs wWinMain</h2>
+  <p>
+    From the docs:
+    <blockquote>
+      <p>
+        The WinMain function is identical to wWinMain, except the command-line arguments
+        are passed as an ANSI string. The Unicode version is preferred. You can use the
+        ANSI WinMain function even if you compile your program as Unicode.
+      </p>
+    </blockquote>
+  </p>
+</aside>
+{% endblock content %}
